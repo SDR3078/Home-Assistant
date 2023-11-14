@@ -48,5 +48,9 @@
         ]
       }
     }
-  }
+  },
+  "mounts": [
+    // Custom configuration directory
+    "source=C:/Users/sande/Documents/Projects/Home-Assistant/Config,target=${containerWorkspaceFolder}/config,type=bind"
+  ]
 }
