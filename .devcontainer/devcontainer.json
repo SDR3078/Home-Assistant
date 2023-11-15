@@ -51,7 +51,8 @@
   },
   "mounts": [
     // Custom configuration directory
-    "source=C:/Users/sande/Documents/Projects/Home-Assistant/Config,target=${containerWorkspaceFolder}/config,type=bind"
-    //test
+    "source=C:/Users/sande/Documents/Projects/Home-Assistant/Config,target=${containerWorkspaceFolder}/config,type=bind",
+    // Custom component
+    "source=C:/Users/sande/Documents/Projects/Home-Assistant/PS3MAPI/custom_components,target=${containerWorkspaceFolder}/config/custom_components/PS3MAPI,type=bind"
   ]
 }
