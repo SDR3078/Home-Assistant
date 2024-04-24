@@ -1,8 +1,9 @@
 """Conftest for microBees tests."""
+
 import time
 from unittest.mock import AsyncMock, patch
 
-from microBeesPy.microbees import Bee, MicroBees, Profile
+from microBeesPy import Bee, MicroBees, Profile
 import pytest
 
 from homeassistant.components.application_credentials import (
@@ -83,11 +84,14 @@ def mock_microbees():
     mock.getBees.return_value = devices
     mock.getMyProfile.return_value = profile
 
-    with patch(
-        "homeassistant.components.microbees.config_flow.MicroBees",
-        return_value=mock,
-    ) as mock, patch(
-        "homeassistant.components.microbees.MicroBees",
-        return_value=mock,
+    with (
+        patch(
+            "homeassistant.components.microbees.config_flow.MicroBees",
+            return_value=mock,
+        ) as mock,
+        patch(
+            "homeassistant.components.microbees.MicroBees",
+            return_value=mock,
+        ),
     ):
         yield mock
