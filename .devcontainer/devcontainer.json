@@ -2,7 +2,7 @@
   "name": "Home Assistant Dev",
   "context": "..",
   "dockerFile": "../Dockerfile.dev",
-  "postCreateCommand": "script/setup",
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && script/setup",
   "postStartCommand": "script/bootstrap",
   "containerEnv": {
     "PYTHONASYNCIODEBUG": "1"
@@ -61,5 +61,6 @@
     "source=C:/Users/sande/Documents/Projects/Home-Assistant/Config,target=${containerWorkspaceFolder}/config,type=bind",
     // Custom component
     "source=C:/Users/sande/Documents/Projects/Home-Assistant/ps3-home-assistant/custom_components/ps3,target=${containerWorkspaceFolder}/config/custom_components/ps3,type=bind"
-  ]
+  ],
+  "privileged": true
 }
